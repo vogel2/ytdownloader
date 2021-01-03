@@ -17,9 +17,16 @@ quality = str("")
 print(f"Select Quality: HD / SD")
 input(quality)
 
+downloadLocation = str("")
+print(f"Input your download location")
+input(downloadLocation)
+
 if quality == "HD":
-    video.streams.get_highest_resolution().download(output_path="D:/User/Desktop")
+    video.streams.get_highest_resolution().download(output_path=downloadLocation)
 elif quality == "SD":
-    video.streams.get_lowest_resolution().download(output_path="D:/User/Desktop")
+    video.streams.get_lowest_resolution().download(output_path=downloadLocation)
 
+def finish():
+    print("Download Complete!")
 
+video.register_on_complete_callback(finish())
