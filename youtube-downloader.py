@@ -8,7 +8,18 @@ print(f"Title:\n{video.title} \n")
 print(f"Description:\n{video.description} \n")
 print(f"Views:\n{video.views} \n")
 print(f"Rating:\n{video.rating} / 5.0 \n")
-print(f"Length:\n{video.length/60} minutes \n")
+print(f"Length:\n{video.length/60} minute(s) \n")
 
 for stream in video.streams.filter(progressive=True, file_extension='mp4'):
         print(stream)
+
+quality = str("")
+print(f"Select Quality: HD / SD")
+input(quality)
+
+if quality == "HD":
+    video.streams.get_highest_resolution().download(output_path="D:/User/Desktop")
+elif quality == "SD":
+    video.streams.get_lowest_resolution().download(output_path="D:/User/Desktop")
+
+
