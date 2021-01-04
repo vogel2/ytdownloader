@@ -10,26 +10,26 @@ print(f"Views:\n{video.views} \n")
 print(f"Rating:\n{video.rating} / 5.0 \n")
 print(f"Length:\n{video.length} / 60 minute(s) \n")
 
-# for stream in video.streams.filter(progressive=True, file_extension='mp4'):
-#         print(stream)
+for stream in video.streams.filter(progressive=True, file_extension='mp4'):
+        print(stream)
 
-# quality = str("")
-# print(f"Select Quality: HD / SD")
-# input(quality)
+quality = str("")
+print(f"Select Quality: HD / SD")
+input(quality)
 
-# downloadLocation = str("")
-# print(f"Input your download location")
+downloadLocation = str("")
+print(f"Input your download location")
 
 video.streams.get_highest_resolution().download(output_path="/d/Projects/ytdownloader", filename="video")
-# input(downloadLocation)
+input(downloadLocation)
 
 def show_progress_bar(stream, chunk, file_handle, bytes_remaining):
          return  # do work
 
-# if quality == "HD":
-#     
-# elif quality == "SD":
-#     video.streams.get_lowest_resolution().download(output_path=downloadLocation)
+if quality == "HD":
+    
+elif quality == "SD":
+    video.streams.get_lowest_resolution().download(output_path=downloadLocation)
 
 def finish():
     print("Download Complete!")
