@@ -20,14 +20,14 @@ input(quality)
 downloadLocation = str("")
 print(f"Input your download location")
 
-video.streams.get_highest_resolution().download(output_path="/d/Projects/ytdownloader", filename="video")
+
 input(downloadLocation)
 
 def show_progress_bar(stream, chunk, file_handle, bytes_remaining):
          return  # do work
 
 if quality == "HD":
-    
+    video.streams.get_highest_resolution().download(output_path="/d/Projects/ytdownloader", filename="video")
 elif quality == "SD":
     video.streams.get_lowest_resolution().download(output_path=downloadLocation)
 
